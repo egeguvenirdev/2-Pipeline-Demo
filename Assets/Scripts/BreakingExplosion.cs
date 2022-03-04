@@ -6,7 +6,7 @@ public class BreakingExplosion : MonoBehaviour
 {
     private void Start()
     {
-        for(int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             Rigidbody rb = transform.GetChild(i).GetComponent<Rigidbody>();
             rb.AddExplosionForce(50f, transform.position, 10f); // force, radius

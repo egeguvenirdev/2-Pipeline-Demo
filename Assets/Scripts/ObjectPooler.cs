@@ -5,8 +5,10 @@ using System.Linq;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [SerializeField] private List<ObjectPooledItem> itemsToPool;
-    [SerializeField] private GameObject pooledObjectHolder;
+    [SerializeField]
+    private List<ObjectPooledItem> itemsToPool;
+    [SerializeField] 
+    private GameObject pooledObjectHolder;
 
     private List<GameObject> pooledObjects;
 

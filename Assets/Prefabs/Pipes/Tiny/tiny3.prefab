@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5918442596874653137}
   - component: {fileID: 3507602989188734703}
   - component: {fileID: 3346048724550984570}
-  - component: {fileID: 3394137238344929674}
+  - component: {fileID: 7369749766604519736}
   m_Layer: 9
   m_Name: Obstacle End
   m_TagString: obstaclePipe
@@ -80,8 +80,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &3394137238344929674
-CapsuleCollider:
+--- !u!64 &7369749766604519736
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,10 +90,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1869330934135400759
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4595866191024385930}
   - component: {fileID: 4049510377437811950}
   - component: {fileID: 7463271831242161154}
-  - component: {fileID: 6501020941270400482}
+  - component: {fileID: 1745716724940959313}
   m_Layer: 9
   m_Name: Obstacle Beginning
   m_TagString: obstaclePipe
@@ -174,8 +174,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &6501020941270400482
-CapsuleCollider:
+--- !u!64 &1745716724940959313
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -184,10 +184,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2460521720527009183
 GameObject:
   m_ObjectHideFlags: 0

@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5243544615335809252}
   - component: {fileID: 8835799319769978235}
   - component: {fileID: 7233380443999869859}
-  - component: {fileID: 5190734516496373814}
+  - component: {fileID: 519198546200573745}
   m_Layer: 9
   m_Name: Obstacle End
   m_TagString: obstaclePipe
@@ -251,8 +251,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &5190734516496373814
-CapsuleCollider:
+--- !u!64 &519198546200573745
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -261,10 +261,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &9162275788061051817
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7101059372134294092}
   - component: {fileID: 3327617948512735808}
   - component: {fileID: 1202071279080299429}
-  - component: {fileID: 2733586583772881831}
+  - component: {fileID: 3367692029406284098}
   m_Layer: 9
   m_Name: Obstacle Beginning
   m_TagString: obstaclePipe
@@ -345,8 +345,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2733586583772881831
-CapsuleCollider:
+--- !u!64 &3367692029406284098
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -355,7 +355,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}

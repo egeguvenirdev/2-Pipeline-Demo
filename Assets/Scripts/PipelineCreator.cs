@@ -5,10 +5,12 @@ using UnityEngine;
 public class PipelineCreator : MonoBehaviour
 {
     #region Pipes
-    [SerializeField] private GameObject lastPipe;
-    private Transform endPoint;
-    //private ArrayList pipeTags = new ArrayList(); //{ "3x3.13", "3.5x1.2", "3x1.5", "2x0.7", "2x0.9", "2.5x0.9" };
-    //List<string> pipeTags = new List<string>();
+
+    //last pipes information
+    [SerializeField]
+    private GameObject lastPipe;
+
+    //pipe tags & random number
     string[] pipeTags = new string[] { "thic1", "thic2", "thic3", "tiny1", "tiny2", "tiny3" };
     private int randomListNumber;
 
@@ -19,15 +21,9 @@ public class PipelineCreator : MonoBehaviour
     private void Start()
     {
         objPooler = FindObjectOfType<ObjectPooler>();
-        endPoint = lastPipe.transform.GetChild(1).transform;
 
         StartCoroutine(InstantiatePipe()); // CHANGE IT TO WHEN PLAYER CLICKS
     }
-
-    /*private void Update()
-    {
-            StartCoroutine(InstantiatePipe());
-    }*/
 
     IEnumerator InstantiatePipe()
     {
@@ -36,11 +32,10 @@ public class PipelineCreator : MonoBehaviour
 
         //pulling and repositioning a random pipe from pool
         var poolObj = objPooler.GetPooledObject(pipeTags[randomListNumber]);
-        poolObj.transform.position = endPoint.position;
+        poolObj.transform.position = lastPipe.transform.GetChild(1).transform.position; ;
         lastPipe = poolObj;
 
         //i changed last pipe and its end point
-        endPoint.position = lastPipe.transform.GetChild(1).transform.position;
         poolObj.SetActive(true);
 
         yield return new WaitForSeconds(1.4f);
