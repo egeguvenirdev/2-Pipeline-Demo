@@ -6,11 +6,13 @@ public class PlayerManagement : MonoBehaviour
 {
     //ring scaling
     public float scaleMultiplier;
-    public LayerMask cylinderLayer;
-    public LayerMask obstacleLayer;
     private float ringScaler;
+
     private Transform currentPipe;
     private Vector3 ringTargetScale;
+
+    public LayerMask cylinderLayer;
+    public LayerMask obstacleLayer;
 
     //ring activate object & stopping movement
     [SerializeField]
@@ -18,14 +20,14 @@ public class PlayerManagement : MonoBehaviour
     [SerializeField]
     private Movement movement;
 
-    /*private void Start()
-    {
-        movement = FindObjectOfType<Movement>();
-    }*/
-
     private void Update()
     {
-        //current pipe detection
+        RingResizer();
+        DeathCheck();
+    }
+
+    private void RingResizer()
+    {
         currentPipe = Physics.OverlapSphere(transform.position, 0.1f, cylinderLayer)[0].transform;
         if (Input.GetMouseButton(0))
         {
@@ -42,8 +44,10 @@ public class PlayerManagement : MonoBehaviour
             Vector3 originalScale = new Vector3(1.5f, 1.5f, 1.5f);
             transform.localScale = Vector3.Slerp(transform.localScale, originalScale, 0.15f);
         }
+    }
 
-        //die after hitting a larger scale pipe
+    private void DeathCheck()
+    {
         if (ringScaler > transform.localScale.x)
         {
             Death();
@@ -66,4 +70,5 @@ public class PlayerManagement : MonoBehaviour
         Destroy(gameObject);
         brokenRing.SetActive(true);
     }
+
 }
