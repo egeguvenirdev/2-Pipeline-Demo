@@ -12,6 +12,7 @@ TagManager:
   - thic1
   - thic2
   - thic3
+  - Gem
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - pipe
   - obstacle
-  - 
-  - 
+  - Gem
+  - Player
   - 
   - 
   - 

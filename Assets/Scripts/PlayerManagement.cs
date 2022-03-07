@@ -19,16 +19,19 @@ public class PlayerManagement : MonoBehaviour
     private GameObject brokenRing;
     [SerializeField]
     private Movement movement;
+    public BoxCollider boxCol;
 
     private void Update()
     {
         RingResizer();
+        BoxCollider();
         DeathCheck();
     }
 
     private void RingResizer()
     {
         currentPipe = Physics.OverlapSphere(transform.position, 0.1f, cylinderLayer)[0].transform;
+
         if (Input.GetMouseButton(0))
         {
             //METHOD YAZ
@@ -56,11 +59,22 @@ public class PlayerManagement : MonoBehaviour
         //die after touching obstacles
         if (Physics.CheckSphere(transform.position, 0.001f, obstacleLayer))
         {
-            Debug.Log("heyo");
             if (transform.localScale.x <= ringTargetScale.x + 0.05f)
             {
                 Death();
             }
+        }
+    }
+
+    private void BoxCollider()
+    {
+        if (transform.localScale.x > ringTargetScale.x + 0.05f)
+        {
+            boxCol.isTrigger = false;
+        }
+        else
+        {
+            boxCol.isTrigger = true;
         }
     }
 

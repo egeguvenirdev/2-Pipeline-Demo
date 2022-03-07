@@ -64,6 +64,24 @@ MonoBehaviour:
   cylinderLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  brokenRing: {fileID: 1269644506086300616}
+  movement: {fileID: 0}
+--- !u!65 &2523763223954301032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269644505835896272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5992862, y: 1.5992862, z: 0.16848122}
+  m_Center: {x: 0, y: 0.000000083820474, z: 0.000024199486}
 --- !u!114 &2116629300536062494
 MonoBehaviour:
   m_ObjectHideFlags: 0
