@@ -9,9 +9,8 @@ public class GemCollection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("test");
         gameObject.SetActive(false);
-        Instantiate(particle, transform.position, Quaternion.Euler(180, 0, 0));
+        Instantiate(particle, transform.position, Quaternion.Euler(235, Random.Range(-15f, 16f), 0));
         Invoke("Reactivate", 2f);
     }
 

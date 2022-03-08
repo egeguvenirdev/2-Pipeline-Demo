@@ -11,8 +11,6 @@ public class BreakingExplosion : MonoBehaviour
             Rigidbody rb = transform.GetChild(i).GetComponent<Rigidbody>();
             rb.AddExplosionForce(50f, transform.position, 10f); // force, radius
             rb.angularVelocity = new Vector3(Random.Range(-3, 4), Random.Range(-3, 4), 0); //(float)Random.Range(3, 7);
-
         }
     }
-
 }

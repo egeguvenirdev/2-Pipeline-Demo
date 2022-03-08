@@ -24,7 +24,6 @@ public class PlayerManagement : MonoBehaviour
     private void Update()
     {
         RingResizer();
-        BoxCollider();
         DeathCheck();
     }
 
@@ -34,18 +33,23 @@ public class PlayerManagement : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            //METHOD YAZ
-
             //ring new scale calculations
             ringScaler = currentPipe.localScale.x * scaleMultiplier;
-            ringTargetScale = new Vector3(ringScaler, ringScaler, 1);
+            ringTargetScale = new Vector3(ringScaler, ringScaler, 1.5f);
 
-            transform.localScale = Vector3.Slerp(transform.localScale, ringTargetScale, 0.15f);
+            transform.localScale = Vector3.Slerp(transform.localScale, ringTargetScale, 0.3f);
+
+            if (transform.localScale.x <= ringTargetScale.x + 0.05f || transform.localScale.x >= ringTargetScale.x - 0.05f)
+            {
+                BoxTriggerOpen();
+            }
         }
         else
         {
             Vector3 originalScale = new Vector3(1.5f, 1.5f, 1.5f);
-            transform.localScale = Vector3.Slerp(transform.localScale, originalScale, 0.15f);
+            transform.localScale = Vector3.Slerp(transform.localScale, originalScale, 0.5f);
+            BoxTriggerClose();
+            boxCol.enabled = false;
         }
     }
 
@@ -57,7 +61,7 @@ public class PlayerManagement : MonoBehaviour
         }
 
         //die after touching obstacles
-        if (Physics.CheckSphere(transform.position, 0.001f, obstacleLayer))
+        if (Physics.CheckSphere(transform.position, 0.05f, obstacleLayer))
         {
             if (transform.localScale.x <= ringTargetScale.x + 0.05f)
             {
@@ -66,23 +70,21 @@ public class PlayerManagement : MonoBehaviour
         }
     }
 
-    private void BoxCollider()
+    //ring's collider opening and closing
+    private void BoxTriggerOpen()
     {
-        if (transform.localScale.x > ringTargetScale.x + 0.05f)
-        {
-            boxCol.isTrigger = false;
-        }
-        else
-        {
-            boxCol.isTrigger = true;
-        }
+        boxCol.enabled = true;
+    }
+    private void BoxTriggerClose()
+    {
+        boxCol.enabled = false;
     }
 
+    //player's death
     private void Death()
     {
         movement.enabled = false;
         Destroy(gameObject);
         brokenRing.SetActive(true);
     }
-
 }
