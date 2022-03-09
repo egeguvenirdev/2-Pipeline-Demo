@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 1206179746396589217, guid: b565d860e00f41340bb112141048d910,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 2
 --- !u!54 &2793561511739631251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 1206179746396589217, guid: b565d860e00f41340bb112141048d910,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 2
 --- !u!54 &1628759327871403839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 1206179746396589217, guid: b565d860e00f41340bb112141048d910,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 2
 --- !u!54 &7313048192971801978
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 1206179746396589217, guid: b565d860e00f41340bb112141048d910,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 2
 --- !u!1 &7804235909867795199
 GameObject:
   m_ObjectHideFlags: 0

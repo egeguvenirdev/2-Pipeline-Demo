@@ -702,10 +702,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 145be144-3aaa-4933-b809-e6111885f6e1
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: My project
+  organizationId: vigilante-games
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

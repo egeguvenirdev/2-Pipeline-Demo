@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 4
 --- !u!65 &5313102991943542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 4
 --- !u!65 &3454169058983755777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 4
 --- !u!65 &2095492421088033452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
     type: 3}
-  pm: {fileID: 0}
+  colorType: 4
 --- !u!65 &2706974204213617157
 BoxCollider:
   m_ObjectHideFlags: 0

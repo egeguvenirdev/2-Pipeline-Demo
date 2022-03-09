@@ -20,10 +20,15 @@ public class PlayerManagement : MonoBehaviour
     [SerializeField]
     private Movement movement;
     public BoxCollider boxCol;
+    [SerializeField] private PauseButton pauseButton;
 
     private void Update()
     {
-        RingResizer();
+        if (!pauseButton.isPaused)
+        {
+            RingResizer();
+        }
+
         DeathCheck();
     }
 

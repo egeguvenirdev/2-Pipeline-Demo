@@ -43,6 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 8432410555337906535, guid: 8c4bcc79230f97241a3138e0b55c1abf,
     type: 3}
+  colorType: 3
 --- !u!54 &2555121507934112317
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -86,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 8432410555337906535, guid: 8c4bcc79230f97241a3138e0b55c1abf,
     type: 3}
+  colorType: 3
 --- !u!54 &8301431151632098430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 8432410555337906535, guid: 8c4bcc79230f97241a3138e0b55c1abf,
     type: 3}
+  colorType: 3
 --- !u!1 &7185876405733120918
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 8432410555337906535, guid: 8c4bcc79230f97241a3138e0b55c1abf,
     type: 3}
+  colorType: 3
 --- !u!1001 &970738971754184077
 PrefabInstance:
   m_ObjectHideFlags: 0
