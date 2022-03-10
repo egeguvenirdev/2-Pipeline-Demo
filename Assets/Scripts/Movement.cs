@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float camSpeed = 0.1f;
     public bool movementBool = false;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (movementBool)
         {

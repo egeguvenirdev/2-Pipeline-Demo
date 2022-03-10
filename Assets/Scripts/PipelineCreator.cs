@@ -13,6 +13,7 @@ public class PipelineCreator : MonoBehaviour
     //pipe tags & random number
     string[] pipeTags = new string[] { "thic1", "thic2", "thic3", "tiny1", "tiny2", "tiny3" };
     private int randomListNumber;
+    private bool check;
 
     #endregion
 
@@ -29,24 +30,24 @@ public class PipelineCreator : MonoBehaviour
 
     IEnumerator InstantiatePipe()
     {
-        if (UIM.isPaused == false)
+        check = UIM.isPaused;
+        if (check == false)
         {
             //creating a random number for random pipe tag
             randomListNumber = Random.Range(0, pipeTags.Length);
 
             //pulling and repositioning a random pipe from pool
             var poolObj = objPooler.GetPooledObject(pipeTags[randomListNumber]);
-            poolObj.transform.position = lastPipe.transform.GetChild(1).transform.position; ;
+            poolObj.transform.position = lastPipe.transform.GetChild(1).transform.position;
             lastPipe = poolObj;
 
             //i changed last pipe and its end point
             poolObj.SetActive(true);
 
-            yield return new WaitForSeconds(1.4f);
-
-            StartCoroutine(InstantiatePipe());
+            //yield return new WaitForSeconds(1.4f);
         }
-        //lastPipe = poolObj;       
+        yield return new WaitForSeconds(1.4f);
+        StartCoroutine(InstantiatePipe());       
     }
 }
 

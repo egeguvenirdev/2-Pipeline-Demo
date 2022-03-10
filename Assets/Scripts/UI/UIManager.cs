@@ -11,8 +11,14 @@ public class UIManager : MonoBehaviour
 
     //pause button ui uthilities
     [SerializeField] private GameObject pausedText;
-    public bool isPaused = true;
-    public bool isDead = false;
+    public bool isPaused;
+    public bool isDead;
+
+    private void Start()
+    {
+        isPaused = true;
+        isDead = false;
+    }
 
     private void Update()
     {
