@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    [SerializeField] private float camSpeed = 0.1f;
+    [SerializeField] private float camSpeed = 0.15f;
     public bool movementBool = false;
 
     private void Update()

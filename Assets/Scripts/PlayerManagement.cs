@@ -29,6 +29,11 @@ public class PlayerManagement : MonoBehaviour
             RingResizer();
         }
 
+        if (UIM.isPaused == true)
+        {
+            boxCol.enabled = false;
+        }
+
         DeathCheck();
     }
 
@@ -36,7 +41,7 @@ public class PlayerManagement : MonoBehaviour
     {
         currentPipe = Physics.OverlapSphere(transform.position, 0.1f, cylinderLayer)[0].transform;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !UIM.isPaused)
         {
             //ring new scale calculations
             ringScaler = currentPipe.localScale.x * scaleMultiplier;
@@ -46,7 +51,7 @@ public class PlayerManagement : MonoBehaviour
 
             if (transform.localScale.x <= ringTargetScale.x + 0.05f || transform.localScale.x >= ringTargetScale.x - 0.05f)
             {
-                BoxTriggerOpen();
+                boxCol.enabled = true;
             }
         }
         else

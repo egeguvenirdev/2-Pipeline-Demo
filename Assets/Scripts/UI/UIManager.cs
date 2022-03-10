@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject tapToPlayUI;
     [SerializeField] private GameObject restartMenuUI;
     [SerializeField] private Movement movement; //movement script
+    [SerializeField] private TMP_Text highScoreText;
+    [SerializeField] private TMP_Text currentScoreText;
 
     //pause button ui uthilities
     [SerializeField] private GameObject pausedText;
+    private int currentScore;
     public bool isPaused;
     public bool isDead;
 
@@ -18,6 +22,8 @@ public class UIManager : MonoBehaviour
     {
         isPaused = true;
         isDead = false;
+        //highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        currentScore = 0;
     }
 
     private void Update()
@@ -51,6 +57,18 @@ public class UIManager : MonoBehaviour
         restartMenuUI.SetActive(true);
         isDead = true;
         isPaused = true;
+    }
+
+    public void HighScore()
+    {
+        currentScore += 10;
+        currentScoreText.text = "Score: " + currentScore.ToString();
+
+        if (currentScore > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.GetInt("HighScore", currentScore);
+            highScoreText.text = "High Score: " + currentScore.ToString();
+        }
     }
 
     public void UIPauseButton()

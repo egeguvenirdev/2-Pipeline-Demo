@@ -46,7 +46,7 @@ public class PipelineCreator : MonoBehaviour
 
             //yield return new WaitForSeconds(1.4f);
         }
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(InstantiatePipe());       
     }
 }
