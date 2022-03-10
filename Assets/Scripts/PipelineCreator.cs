@@ -16,6 +16,8 @@ public class PipelineCreator : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private UIManager UIM;
+
     private ObjectPooler objPooler;
 
     private void Start()
@@ -27,20 +29,23 @@ public class PipelineCreator : MonoBehaviour
 
     IEnumerator InstantiatePipe()
     {
-        //creating a random number for random pipe tag
-        randomListNumber = Random.Range(0, pipeTags.Length);
+        if (UIM.isPaused == false)
+        {
+            //creating a random number for random pipe tag
+            randomListNumber = Random.Range(0, pipeTags.Length);
 
-        //pulling and repositioning a random pipe from pool
-        var poolObj = objPooler.GetPooledObject(pipeTags[randomListNumber]);
-        poolObj.transform.position = lastPipe.transform.GetChild(1).transform.position; ;
-        lastPipe = poolObj;
+            //pulling and repositioning a random pipe from pool
+            var poolObj = objPooler.GetPooledObject(pipeTags[randomListNumber]);
+            poolObj.transform.position = lastPipe.transform.GetChild(1).transform.position; ;
+            lastPipe = poolObj;
 
-        //i changed last pipe and its end point
-        poolObj.SetActive(true);
+            //i changed last pipe and its end point
+            poolObj.SetActive(true);
 
-        yield return new WaitForSeconds(1.4f);
+            yield return new WaitForSeconds(1.4f);
 
-        StartCoroutine(InstantiatePipe());
+            StartCoroutine(InstantiatePipe());
+        }
         //lastPipe = poolObj;       
     }
 }

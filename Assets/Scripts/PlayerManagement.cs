@@ -20,11 +20,11 @@ public class PlayerManagement : MonoBehaviour
     [SerializeField]
     private Movement movement;
     public BoxCollider boxCol;
-    [SerializeField] private PauseButton pauseButton;
+    [SerializeField] private UIManager UIM;
 
     private void Update()
     {
-        if (!pauseButton.isPaused)
+        if (UIM.isPaused == false)
         {
             RingResizer();
         }
@@ -91,5 +91,6 @@ public class PlayerManagement : MonoBehaviour
         movement.enabled = false;
         Destroy(gameObject);
         brokenRing.SetActive(true);
+        UIM.OnDeath();
     }
 }

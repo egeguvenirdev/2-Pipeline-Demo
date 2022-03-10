@@ -5,10 +5,10 @@ using UnityEngine;
 public class GemCollection : MonoBehaviour
 {
     [SerializeField] private GameObject particle;
-
+    [SerializeField] private UIManager UIM;
     private ObjectPooler objPooler;
-
     public ParticleColor colorType;
+
     public enum ParticleColor
     {
         Blue, 
@@ -22,7 +22,7 @@ public class GemCollection : MonoBehaviour
     private void Start()
     {
         objPooler = FindObjectOfType<ObjectPooler>();
-
+        UIM = FindObjectOfType<UIManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,7 +35,10 @@ public class GemCollection : MonoBehaviour
         particle.SetActive(true);
         particle.GetComponent<ParticleSystem>().Play();
 
-        Invoke("Reactivate", 2f);
+        if (UIM.isPaused == false)
+        {
+            Invoke("Reactivate", 2f);
+        }
     }
 
     private void Reactivate()

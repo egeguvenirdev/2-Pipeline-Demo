@@ -6,11 +6,11 @@ public class Movement : MonoBehaviour
 {
 
     [SerializeField] private float camSpeed = 0.1f;
-    private bool movement = false;
+    public bool movementBool = false;
 
     private void FixedUpdate()
     {
-        if (movement)
+        if (movementBool)
         {
             transform.Translate(new Vector3(0, camSpeed, camSpeed));
             if (transform.position.y / 50 == 0)
@@ -18,8 +18,12 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void movementCheck()
+    public void MovementStart()
     {
-        movement = true;
+        movementBool = true;
+    }
+    public void MovementStop()
+    {
+        movementBool = false;
     }
 }
