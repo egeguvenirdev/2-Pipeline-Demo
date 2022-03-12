@@ -38,6 +38,8 @@ public class GemCollection : MonoBehaviour
         particle.SetActive(true);
         particle.GetComponent<ParticleSystem>().Play();
 
+        StressReceiver.shake.InduceStress(0.01f);
+
         UIM.HighScore();
 
         Invoke("Reactivate", 2f);

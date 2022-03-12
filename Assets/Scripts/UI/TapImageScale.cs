@@ -24,17 +24,6 @@ public class TapImageScale : MonoBehaviour
 
     private void TappingScaler()
     {
-        /*rectTransform.localScale = Vector3.Slerp(rectTransform.localScale, temp, 0.05f);
-
-        if (rectTransform.localScale.x < 0.7)
-        {
-            temp = bigScale;
-        }
-        if (rectTransform.localScale.x > 1)
-        {
-            temp = smallScale;
-        }*/
-
         float lerpValue = (Mathf.Sin(speed * Time.time) + 1f) / 2f; // <0, 1> verecek hep
         rectTransform.localScale = Vector3.Lerp(smallScale, bigScale, lerpValue); // burdan da baslangıç ile bitiş değeri arasında value alacaksın
     }

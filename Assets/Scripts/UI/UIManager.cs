@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Movement movement; //movement script
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private TMP_Text currentScoreText;
+    public static UIManager UIM;
 
     //pause button ui uthilities
     [SerializeField] private GameObject pausedText;
@@ -18,6 +19,10 @@ public class UIManager : MonoBehaviour
     public bool isPaused;
     public bool isDead;
 
+    private void Awake()
+    {
+        UIM = this;
+    }
     private void Start()
     {
         isPaused = true;
