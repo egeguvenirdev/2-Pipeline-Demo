@@ -42,7 +42,7 @@ public class GemCollection : MonoBehaviour
         StressReceiver.shake.InduceStress(0.01f);
         haptic.HapticFeedback(MoreMountains.NiceVibrations.HapticTypes.LightImpact);
 
-        UIM.HighScore();
+        UIM.CurrentScore();
 
         Invoke("Reactivate", 2f);
     }

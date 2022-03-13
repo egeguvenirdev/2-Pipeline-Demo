@@ -64,20 +64,28 @@ public class UIManager : MonoBehaviour
 
     public void OnDeath()
     {
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
         restartMenuUI.SetActive(true);
         isDead = true;
         isPaused = true;
+
+        IsHighScore();
     }
 
-    public void HighScore()
+    public void CurrentScore()
     {
         currentScore += 10;
         currentScoreText.text = "Score: " + currentScore.ToString();
 
+    }
+
+    private void IsHighScore()
+    {
         if (currentScore > PlayerPrefs.GetInt("HighScore", 0))
         {
-            PlayerPrefs.GetInt("HighScore", currentScore);
-            highScoreText.text = "High Score: " + currentScore.ToString();
+            PlayerPrefs.SetInt("HighScore", currentScore);
+            highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
+            Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
         }
     }
 
