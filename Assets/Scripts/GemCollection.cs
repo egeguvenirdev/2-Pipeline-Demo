@@ -7,6 +7,7 @@ public class GemCollection : MonoBehaviour
     [SerializeField] private UIManager UIM;
     private ObjectPooler objPooler;
     public ParticleColor colorType;
+    private Haptic haptic;
 
     public static GemCollection gemCollection;
 
@@ -23,6 +24,7 @@ public class GemCollection : MonoBehaviour
     private void Start()
     {
         objPooler = FindObjectOfType<ObjectPooler>();
+        haptic = FindObjectOfType<Haptic>();
         UIM = FindObjectOfType<UIManager>();
         gemCollection = this;
     }
@@ -31,14 +33,14 @@ public class GemCollection : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        //Debug.Log(highScore + " bas");
         var particle = objPooler.GetPooledObject(colorType.ToString());
         particle.transform.position = transform.position;
-        particle.transform.rotation = Quaternion.Euler(235, Random.Range(-15f, 16f), 0);
+        particle.transform.rotation = Quaternion.Euler(180, Random.Range(-25f, 26f), 0);
         particle.SetActive(true);
         particle.GetComponent<ParticleSystem>().Play();
 
         StressReceiver.shake.InduceStress(0.01f);
+        haptic.HapticFeedback(MoreMountains.NiceVibrations.HapticTypes.LightImpact);
 
         UIM.HighScore();
 

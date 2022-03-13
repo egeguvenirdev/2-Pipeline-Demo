@@ -5,14 +5,13 @@ using System.Linq;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [SerializeField]
-    private List<ObjectPooledItem> itemsToPool;
-    [SerializeField] 
-    private GameObject pooledObjectHolder;
+    [SerializeField] private List<ObjectPooledItem> itemsToPool;
+    [SerializeField] private GameObject pooledObjectHolder;
 
     private List<GameObject> pooledObjects;
 
-    /*private ObjectPooler objPooler;
+    /* //GAMEOBJECT
+    private ObjectPooler objPooler;
 
     private void Start()
     {
@@ -22,9 +21,41 @@ public class ObjectPooler : MonoBehaviour
     public void InstanPipe()
     {
         var poolObj = objPooler.GetPooledObject("testTag");
-        //poolObj.transform.position = xxx
         poolObj.SetActive(true);
     }*/
+
+    /* 
+    // PARTICLE POOLER 
+    private ObjectPooler objPooler;
+    public ParticleColor colorType;
+
+    public static GemCollection gemCollection;
+
+    public enum ParticleColor
+    {
+        Blue, 
+        Green,
+        Yellow,
+        Pink,
+        Purple,
+        Orange
+    } 
+    
+    private void Start()
+    {
+        objPooler = FindObjectOfType<ObjectPooler>();
+    }
+    
+    //usage
+     gameObject.SetActive(false);
+
+     var particle = objPooler.GetPooledObject(colorType.ToString());
+     particle.transform.position = transform.position;
+     particle.transform.rotation = Quaternion.Euler(235, Random.Range(-15f, 16f), 0);
+     particle.SetActive(true);
+     particle.GetComponent<ParticleSystem>().Play();
+     
+     */
 
     private void Awake()
     {
@@ -67,5 +98,4 @@ public class ObjectPooler : MonoBehaviour
         return null;
     }
 
-    
 }

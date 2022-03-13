@@ -33,26 +33,31 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        //first touch to play the game
-        if (tapToPlayUI.activeSelf)
+        if (Input.touchCount > 0)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                tapToPlayUI.SetActive(false);
-                movement.MovementStart();
-                isPaused = false;
-            }
-        }
+            Touch touch = Input.GetTouch(0);
 
-        if (restartMenuUI.activeSelf)
-        {
-            if (Input.GetMouseButtonDown(0))
+            //first touch to play the game
+            if (tapToPlayUI.activeSelf)
             {
-                restartMenuUI.SetActive(false);
-                movement.MovementStart();
-                isDead = false;
-                isPaused = false;
-                SceneManager.LoadScene(0);
+                if (/*Input.GetMouseButtonDown(0)*/ touch.phase == TouchPhase.Began)
+                {
+                    tapToPlayUI.SetActive(false);
+                    movement.MovementStart();
+                    isPaused = false;
+                }
+            }
+
+            if (restartMenuUI.activeSelf)
+            {
+                if (/*Input.GetMouseButtonDown(0)*/ touch.phase == TouchPhase.Began)
+                {
+                    restartMenuUI.SetActive(false);
+                    movement.MovementStart();
+                    isDead = false;
+                    isPaused = false;
+                    SceneManager.LoadScene(0);
+                }
             }
         }
     }

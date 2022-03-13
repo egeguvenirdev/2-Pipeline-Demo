@@ -6,7 +6,7 @@ public class ApplicationManager : MonoBehaviour
 {
     private void Awake()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 144;
         //Time.timeScale = 0;
     }
 }
