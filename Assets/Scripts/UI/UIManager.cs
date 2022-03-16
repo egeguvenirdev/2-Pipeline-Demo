@@ -18,10 +18,13 @@ public class UIManager : MonoBehaviour
     private int currentScore;
     public bool isPaused;
     public bool isDead;
+    public int vibrationOnOff;
+    public int soundOnOff;
 
     private void Awake()
     {
         UIM = this;
+
     }
     private void Start()
     {
@@ -29,37 +32,6 @@ public class UIManager : MonoBehaviour
         isDead = false;
         //highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         currentScore = 0;
-    }
-
-    private void Update()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            //first touch to play the game
-            if (tapToPlayUI.activeSelf)
-            {
-                if (/*Input.GetMouseButtonDown(0)*/ touch.phase == TouchPhase.Began)
-                {
-                    tapToPlayUI.SetActive(false);
-                    movement.MovementStart();
-                    isPaused = false;
-                }
-            }
-
-            if (restartMenuUI.activeSelf)
-            {
-                if (/*Input.GetMouseButtonDown(0)*/ touch.phase == TouchPhase.Began)
-                {
-                    restartMenuUI.SetActive(false);
-                    movement.MovementStart();
-                    isDead = false;
-                    isPaused = false;
-                    SceneManager.LoadScene(0);
-                }
-            }
-        }
     }
 
     public void OnDeath()
@@ -85,7 +57,26 @@ public class UIManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", currentScore);
             highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
-            Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
+        }
+    }
+
+    public void PlayResButton()
+    {
+        if (tapToPlayUI.activeSelf)
+        {
+            tapToPlayUI.SetActive(false);
+            movement.MovementStart();
+            isPaused = false;
+        }
+
+
+        if (restartMenuUI.activeSelf)
+        {
+            restartMenuUI.SetActive(false);
+            movement.MovementStart();
+            isDead = false;
+            isPaused = false;
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -97,6 +88,30 @@ public class UIManager : MonoBehaviour
             pausedText.SetActive(true);
             tapToPlayUI.SetActive(true);
             isPaused = true;
+        }
+    }
+
+    public void UIVibrationToggle(bool checkOnOff)
+    {
+        if (checkOnOff)
+        {
+            PlayerPrefs.SetInt("vibrationOnOff", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("vibrationOnOff", 0);
+        }
+    }
+
+    public void UISoundToggle(bool checkOnOff)
+    {
+        if (checkOnOff)
+        {
+            PlayerPrefs.SetInt("soundOnOff", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("soundOnOff", 0);
         }
     }
 

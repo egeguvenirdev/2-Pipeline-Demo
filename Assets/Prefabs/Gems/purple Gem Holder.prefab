@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136f96667544aca40a4ec37f5853b033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
-    type: 3}
+  UIM: {fileID: 0}
   colorType: 4
+  collectAudio: {fileID: 8300000, guid: 6241b9e22051f554ebd67451dc970b49, type: 3}
 --- !u!65 &5313102991943542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -254,9 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136f96667544aca40a4ec37f5853b033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
-    type: 3}
+  UIM: {fileID: 0}
   colorType: 4
+  collectAudio: {fileID: 8300000, guid: 6241b9e22051f554ebd67451dc970b49, type: 3}
 --- !u!65 &3454169058983755777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -380,9 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136f96667544aca40a4ec37f5853b033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
-    type: 3}
+  UIM: {fileID: 0}
   colorType: 4
+  collectAudio: {fileID: 8300000, guid: 6241b9e22051f554ebd67451dc970b49, type: 3}
 --- !u!65 &2095492421088033452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -506,9 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136f96667544aca40a4ec37f5853b033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 5607372582071024854, guid: db7b3accdb18145468462e1fa843b84b,
-    type: 3}
+  UIM: {fileID: 0}
   colorType: 4
+  collectAudio: {fileID: 8300000, guid: 6241b9e22051f554ebd67451dc970b49, type: 3}
 --- !u!65 &2706974204213617157
 BoxCollider:
   m_ObjectHideFlags: 0
