@@ -3170,10 +3170,10 @@ MonoBehaviour:
   highScoreText: {fileID: 941637805}
   currentScoreText: {fileID: 2031538957}
   pausedText: {fileID: 1608522691}
+  soundToggle: {fileID: 356030925}
+  vibrationToggle: {fileID: 1613464260}
   isPaused: 0
   isDead: 0
-  vibrationOnOff: 0
-  soundOnOff: 0
 --- !u!4 &1548574324
 Transform:
   m_ObjectHideFlags: 0
