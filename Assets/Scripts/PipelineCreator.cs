@@ -25,7 +25,7 @@ public class PipelineCreator : MonoBehaviour
     {
         objPooler = FindObjectOfType<ObjectPooler>();
 
-        StartCoroutine(InstantiatePipe()); // CHANGE IT TO WHEN PLAYER CLICKS
+        StartCoroutine(InstantiatePipe());
     }
 
     IEnumerator InstantiatePipe()
@@ -43,8 +43,6 @@ public class PipelineCreator : MonoBehaviour
 
             //i changed last pipe and its end point
             poolObj.SetActive(true);
-
-            //yield return new WaitForSeconds(1.4f);
         }
         yield return new WaitForSeconds(1f);
         StartCoroutine(InstantiatePipe());       

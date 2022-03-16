@@ -13,9 +13,8 @@ public class PipeDestroyer : MonoBehaviour
 
     void LateUpdate()
     {
-        if( (cam.transform.position.z - this.transform.position.z) > 10f)
+        if( (cam.transform.position.z - this.transform.position.z) > 10f) //set deactive the pipes after the ring moved a certain distance
         {
-            //Destroy(this.gameObject);
             gameObject.SetActive(false);
         }
     }

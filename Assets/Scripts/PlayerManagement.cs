@@ -6,9 +6,9 @@ public class PlayerManagement : MonoBehaviour
 {
     //ring scaling
     public float scaleMultiplier;
-    private float ringScaler;
+    private float ringScaleMultiplier; //it prevents scale diffrences between the objects
 
-    private Transform currentPipe;
+    private Transform currentPipe; //the pipes which the ring above it
     private Vector3 ringTargetScale;
 
     public LayerMask cylinderLayer;
@@ -44,22 +44,22 @@ public class PlayerManagement : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             currentPipe = Physics.OverlapSphere(transform.position, 0.1f, cylinderLayer)[0].transform;
 
-            if (/*Input.GetMouseButton(0)*/ touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved && !UIM.isPaused)
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved && !UIM.isPaused)
             {
                 //ring new scale calculations
-                ringScaler = currentPipe.localScale.x * scaleMultiplier;
-                ringTargetScale = new Vector3(ringScaler, ringScaler, 1.5f);
+                ringScaleMultiplier = currentPipe.localScale.x * scaleMultiplier;
+                ringTargetScale = new Vector3(ringScaleMultiplier, ringScaleMultiplier, 1.5f);
 
                 transform.localScale = Vector3.Slerp(transform.localScale, ringTargetScale, 0.3f);
 
-                if (transform.localScale.x <= ringTargetScale.x + 0.05f || transform.localScale.x >= ringTargetScale.x - 0.05f)
+                if (transform.localScale.x <= ringTargetScale.x + 0.05f || transform.localScale.x >= ringTargetScale.x - 0.05f) // if the ring has true sizes, activating collider for collect gems
                 {
                     boxCol.enabled = true;
                 }
             }
         }
 
-        else
+        else // if player doesnt touch the screen, resize the ring to its orginal size
         {
             Vector3 originalScale = new Vector3(1.5f, 1.5f, 1.5f);
             transform.localScale = Vector3.Slerp(transform.localScale, originalScale, 0.3f);
@@ -70,7 +70,7 @@ public class PlayerManagement : MonoBehaviour
 
     private void DeathCheck()
     {
-        if (ringScaler > transform.localScale.x)
+        if (ringScaleMultiplier > transform.localScale.x) // if player hits another big pipe while the ring's size is smaller than that pipe, player dies
         {
             Death();
         }

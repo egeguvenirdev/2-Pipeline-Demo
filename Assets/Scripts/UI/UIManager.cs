@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -15,22 +16,31 @@ public class UIManager : MonoBehaviour
 
     //pause button ui uthilities
     [SerializeField] private GameObject pausedText;
+    [SerializeField] private Toggle soundToggle;
+    [SerializeField] private Toggle vibrationToggle;
     private int currentScore;
     public bool isPaused;
     public bool isDead;
-    public int vibrationOnOff;
-    public int soundOnOff;
 
     private void Awake()
     {
         UIM = this;
+        soundToggle.GetComponent<Toggle>().isOn = true;
+        if (PlayerPrefs.GetInt("vibrationOnOff") == 0)
+        {
+            vibrationToggle.GetComponent<Toggle>().isOn = false;
+        }
 
+        if (PlayerPrefs.GetInt("soundOnOff") == 0)
+        {
+            soundToggle.GetComponent<Toggle>().isOn = false;
+        }
     }
+
     private void Start()
     {
         isPaused = true;
         isDead = false;
-        //highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         currentScore = 0;
     }
 
@@ -48,7 +58,6 @@ public class UIManager : MonoBehaviour
     {
         currentScore += 10;
         currentScoreText.text = "Score: " + currentScore.ToString();
-
     }
 
     private void IsHighScore()
@@ -95,10 +104,12 @@ public class UIManager : MonoBehaviour
     {
         if (checkOnOff)
         {
+            vibrationToggle.GetComponent<Toggle>().isOn = true;
             PlayerPrefs.SetInt("vibrationOnOff", 1);
         }
         else
         {
+            vibrationToggle.GetComponent<Toggle>().isOn = false;
             PlayerPrefs.SetInt("vibrationOnOff", 0);
         }
     }
@@ -107,10 +118,12 @@ public class UIManager : MonoBehaviour
     {
         if (checkOnOff)
         {
+            soundToggle.GetComponent<Toggle>().isOn = true;
             PlayerPrefs.SetInt("soundOnOff", 1);
         }
         else
         {
+            soundToggle.GetComponent<Toggle>().isOn = false;
             PlayerPrefs.SetInt("soundOnOff", 0);
         }
     }

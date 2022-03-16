@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
     [SerializeField] private float camSpeed = 3;
     public bool movementBool = false;
 

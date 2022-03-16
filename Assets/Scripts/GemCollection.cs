@@ -14,7 +14,6 @@ public class GemCollection : MonoBehaviour
 
     private AudioSource camSound;
 
-
     public enum ParticleColor
     {
         Blue, 
@@ -36,12 +35,13 @@ public class GemCollection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //collecting sound
+        //collect vibration
         if (PlayerPrefs.GetInt("vibrationOnOff", 1) == 1)
         {
             haptic.HapticFeedback(MoreMountains.NiceVibrations.HapticTypes.Selection); //Vibration
         }
 
+        //collect sound
         if (PlayerPrefs.GetInt("soundOnOff", 1) == 1)
         {
             camSound.PlayOneShot(collectAudio);
@@ -57,8 +57,6 @@ public class GemCollection : MonoBehaviour
         particle.GetComponent<ParticleSystem>().Play();
 
         StressReceiver.shake.InduceStress(0.01f); //Cam shake
-        //haptic.HapticFeedback(MoreMountains.NiceVibrations.HapticTypes.LightImpact);
-        //haptic.HapticFeedback(MoreMountains.NiceVibrations.HapticTypes.Selection); //Vibration
 
         UIM.CurrentScore(); //calling the func which is adding the every gem's score to a variable 
 
