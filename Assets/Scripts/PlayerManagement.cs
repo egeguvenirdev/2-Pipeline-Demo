@@ -22,6 +22,15 @@ public class PlayerManagement : MonoBehaviour
     public BoxCollider boxCol;
     [SerializeField] private UIManager UIM;
 
+    //Audio
+    [SerializeField] private AudioClip deathAudio;
+    private AudioSource camSound;
+
+    private void Start()
+    {
+        camSound = Camera.main.GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (UIM.isPaused == false)
@@ -72,6 +81,7 @@ public class PlayerManagement : MonoBehaviour
     {
         if (ringScaleMultiplier > transform.localScale.x) // if player hits another big pipe while the ring's size is smaller than that pipe, player dies
         {
+            camSound.PlayOneShot(deathAudio);
             Death();
         }
 
@@ -80,6 +90,7 @@ public class PlayerManagement : MonoBehaviour
         {
             if (transform.localScale.x <= ringTargetScale.x + 0.05f)
             {
+                camSound.PlayOneShot(deathAudio);
                 Death();
             }
         }

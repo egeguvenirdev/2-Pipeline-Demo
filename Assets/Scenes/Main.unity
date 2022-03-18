@@ -4577,6 +4577,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 915379552}
     - target: {fileID: 361700318, guid: 6dd50927302da754182ceeab02c3501f, type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: dc5f7f585d9c7224083fbe9c9835486f, type: 3}
+    - target: {fileID: 361700318, guid: 6dd50927302da754182ceeab02c3501f, type: 3}
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 0}
@@ -4657,7 +4661,7 @@ PrefabInstance:
     - target: {fileID: 2741829255550617323, guid: 6dd50927302da754182ceeab02c3501f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2741829255550617323, guid: 6dd50927302da754182ceeab02c3501f,
         type: 3}
